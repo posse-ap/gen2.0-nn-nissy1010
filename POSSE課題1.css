@@ -1,0 +1,21 @@
+.monndai {
+    text-decoration: underline solid yellow 3px;
+}
+
+button {
+    width: 17cm;
+    height: 1.3cm;
+    margin: 5px 5px;
+    font-size: 15px;
+    font-weight: 1000;
+    background-color: #FFFFFF;
+    color: #000;
+    border-style: solid;
+    border-width: 0.001px;
+    border-color: #ccc;
+    box-shadow: 0 2px 5px 0 #ccc;
+}
+
+body{
+    text-align: center;
+}
