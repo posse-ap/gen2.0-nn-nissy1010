@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 .monndai {
     text-decoration: underline solid yellow 3px;
 }
@@ -5,6 +6,19 @@
 button {
     width: 17cm;
     height: 1.3cm;
+=======
+.question { 
+    text-decoration: underline solid #00ab36 3px;
+    text-underline-offset: 1em;
+    text-decoration-thickness: 2px;   
+    text-align: left;
+    width: 10%;
+}
+
+.before{
+    width: 16.5cm;
+    height: 1.34cm;
+>>>>>>> Stashed changes
     margin: 5px 5px;
     font-size: 15px;
     font-weight: 1000;
@@ -14,8 +28,89 @@ button {
     border-width: 0.001px;
     border-color: #ccc;
     box-shadow: 0 2px 5px 0 #ccc;
+<<<<<<< Updated upstream
 }
 
 body{
     text-align: center;
 }
+=======
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.correct {
+    width: 16.5cm;
+    height: 1.34cm;
+    margin: 5px 5px;
+    font-size: 15px;
+    font-weight: 1000;
+    background-color: #287dff;
+    color: #fff;
+    border-style: solid;
+    border-width: 0.001px;
+    border-color: #ccc;
+    box-shadow: 0 2px 5px 0 #ccc;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.incorrect {
+    width: 16.5cm;
+    height: 1.34cm;
+    margin: 5px 5px;
+    font-size: 15px;
+    font-weight: 1000;
+    background-color: #FF5128;
+    color: #fff;
+    border-style: solid;
+    border-width: 0.001px;
+    border-color: #ccc;
+    box-shadow: 0 2px 5px 0 #ccc;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.comment{
+    width: 16.5cm;
+    height: 2.5cm;
+    margin: 5px 5px;
+    padding: 10px 20px ;
+    background-color: #eee;
+    color: #000;
+    border-style: solid;
+    border-width: 0.001px;
+    border-color: #fff;
+    box-sizing: border-box;
+    text-align: left;
+    line-height: 2.4em;
+}
+
+span{
+    font-size: 17px;
+    font-weight: 1000;
+    text-decoration: underline solid #287dff 3px;
+    text-underline-offset: 0.3em;
+}
+
+.nothing{
+    width: 16.5cm;
+    height: 2.5cm;
+    margin: 5px 5px;
+    padding: 10px 20px;
+    background-color: #eee;
+    color: #000;
+    border-style: solid;
+    border-width: 0.001px;
+    border-color: #fff;
+    box-sizing: border-box;
+    text-align: left;
+    line-height: 2.4em;
+    display: none;
+}
+
+body{
+    margin:0 auto;
+    width: 50%;
+}
+>>>>>>> Stashed changes
