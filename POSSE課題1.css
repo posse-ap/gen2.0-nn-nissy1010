@@ -1,3 +1,11 @@
+
+.question{
+    text-align: left;
+    font-size: 17px;
+    font-weight: 1000;
+    padding-left: 10px;
+}
+
 .question ::after{ 
     content: "";
     display: block;
@@ -7,14 +15,14 @@
     position: relative;
     bottom: 0;
     top: 6px;
-    left: 0px;
+    left: 10px;
 }
 
 .before{
     width: 16.5cm;
     height: 1.34cm;
-    margin: 5px 5px;
-    font-size: 15px;
+    margin: 5px auto;
+    font-size: 16px;
     font-weight: 1000;
     background-color: #FFFFFF;
     color: #000;
@@ -26,11 +34,11 @@
     text-align: left;
 }
 
-.after{
+/* .after{
     width: 16.5cm;
     height: 1.34cm;
-    margin: 5px 5px;
-    font-size: 15px;
+    margin: 5px auto;
+    font-size: 16px;
     font-weight: 1000;
     background-color: #FFFFFF;
     color: #000;
@@ -41,14 +49,17 @@
     box-sizing: border-box;
     text-align: left;
     pointer-events: none;
-}
+} */
 
+.after{
+    pointer-events: none;
+}
 
 .correct{
     width: 16.5cm;
     height: 1.34cm;
-    margin: 5px 5px;
-    font-size: 15px;
+    margin: 5px auto;
+    font-size: 16px;
     font-weight: 1000;
     background-color: #287dff;
     color: #fff;
@@ -64,8 +75,8 @@
 .incorrect{
     width: 16.5cm;
     height: 1.34cm;
-    margin: 5px 5px;
-    font-size: 15px;
+    margin: 5px auto;
+    font-size: 16px;
     font-weight: 1000;
     background-color: #FF5128;
     color: #fff;
@@ -81,7 +92,7 @@
 .comment{
     width: 16.5cm;
     height: 2.5cm;
-    margin: 5px 5px;
+    margin: 5px auto 10px;
     padding: 10px 20px ;
     background-color: #eee;
     color: #000;
@@ -124,14 +135,14 @@
 }
 
 .blue-line{
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 1000;
     text-decoration: underline solid #287dff 3px;
     text-underline-offset: 0.3em;
 }
 
 .red-line{
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 1000;
     text-decoration: underline solid #FF5128 3px;
     text-underline-offset: 0.3em;
@@ -187,5 +198,6 @@
 
 body{
     margin:0 auto;
+    text-align: center;
     width: 50%;
 }

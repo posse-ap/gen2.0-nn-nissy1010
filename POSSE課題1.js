@@ -28,15 +28,25 @@ let Pictures =['<img src="https://d1khcm40x1j0f.cloudfront.net/quiz/34d20397a2a5
                 '<img src="https://d1khcm40x1j0f.cloudfront.net/words/8cad76c39c43e2b651041c6d812ea26e.png" alt="鹿骨">',
                 '<img src="https://d1khcm40x1j0f.cloudfront.net/words/34508ddb0789ee73471b9f17977e7c9c.png" alt="小榑">']
 
+let button = ['0','1','2']
+
 // 本文
 
 for(let count = 0; count < 10; count++){
+
+    for(i = button.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = button[i];
+        button[i] = button[j];
+        button[j] = tmp;
+    }
+
     let content=
-'<span class="question"><h4>' + (count+1)+'. この地名はなんて読む？</h4></span>'+
+'<span class="question"><p>' + (count+1)+'. この地名はなんて読む？</p></span>'+
         Pictures[count] + '<br>'+
-        '<button onclick="Judgment0('+count+')" class= "before" id="No' + (count+1) +'Answer0"><div id="No'+(count+1)+'0"></div></button><br>' +
-        '<button onclick="Judgment1('+count+')" class= "before" id="No' + (count+1) +'Answer1"><div id="No'+(count+1)+'1"></div></button><br>' +
-        '<button onclick="Judgment2('+count+')" class= "before" id="No' + (count+1) +'Answer2"><div id="No'+(count+1)+'2"></div></button><br>' +
+        '<button onclick="Judgment('+count+','+button[0]+')" class= "before" id="No' + (count+1) +'Answer'+button[0]+'"><div id="No'+(count+1)+button[0]+'"></div></button><br>' +
+        '<button onclick="Judgment('+count+','+button[1]+')" class= "before" id="No' + (count+1) +'Answer'+button[1]+'"><div id="No'+(count+1)+button[1]+'"></div></button><br>' +
+        '<button onclick="Judgment('+count+','+button[2]+')" class= "before" id="No' + (count+1) +'Answer'+button[2]+'"><div id="No'+(count+1)+button[2]+'"></div></button><br>' +
         '<div class="blue-nothing" id="No' +(count+1)+'CommentBlue">' + 
             '<span class="blue-line">正解！</span><br>' +
             '<div id="No' +(count+1)+'CommentTrue"></div>' +
@@ -44,7 +54,7 @@ for(let count = 0; count < 10; count++){
         '<div class="red-nothing" id="No' +(count+1)+'CommentRed">' +
             '<span class="red-line">不正解！</span><br>' +
             '<div id="No' +(count+1)+'CommentFalse"></div>' +
-        '</div>';
+        '</div>' ;
 
         document.write(content);
 }
@@ -65,43 +75,17 @@ for(let e = 0; e < 10; e++){
     eva2.innerHTML ="正解は「"+Selections[e][0]+"」です！"
     }
 
-
-
-    function Judgment0(Number){
-        if(Selections[Number][0]=== document.getElementsByTagName("button")[3*Number].textContent){
-        document.getElementById('No'+(Number+1)+'Answer0').className = 'correct';
-        document.getElementById('No'+(Number+1)+'Answer1').className = 'after';
-        document.getElementById('No'+(Number+1)+'Answer2').className = 'after';
-        document.getElementById('No'+(Number+1)+'CommentBlue').className = 'comment';
-        }
-        else{
-        document.getElementById('No'+(Number+1)+'Answer0').className = 'incorrect';
-        document.getElementById('No'+(Number+1)+'CommentRed').className = 'comment';
-    }
-    }
     
-    function Judgment1(Number){
-        if(Selections[Number][0]=== document.getElementsByTagName("button")[3*Number+1].textContent){
-        document.getElementById('No'+(Number+1)+'Answer1').className = 'correct';
+    function Judgment(Number,clicked){
+        document.getElementById('No'+(Number+1)+'Answer'+clicked).className = 'incorrect';
+        document.getElementById('No'+(Number+1)+'Answer0').className = 'correct';
+        document.getElementById('No'+(Number+1)+'Answer0').classList.add('after');
+        document.getElementById('No'+(Number+1)+'Answer1').classList.add('after');
+        document.getElementById('No'+(Number+1)+'Answer2').classList.add('after');
+        if(Selections[Number][0]=== document.getElementById('No'+(Number+1)+'Answer'+clicked).textContent){
         document.getElementById('No'+(Number+1)+'CommentBlue').className = 'comment';
         }
         else{
-        document.getElementById('No'+(Number+1)+'Answer0').className = 'correct';
-        document.getElementById('No'+(Number+1)+'Answer1').className = 'incorrect';
-        document.getElementById('No'+(Number+1)+'Answer2').className = 'after';
-        document.getElementById('No'+(Number+1)+'CommentRed').className = 'comment';
-    }
-    }
-    
-    function Judgment2(Number){
-        if(Selections[Number][0]=== document.getElementsByTagName("button")[3*Number+1].textContent){
-        document.getElementById('No'+(Number+1)+'Answer2').className = 'correct';
-        document.getElementById('No'+(Number+1)+'CommentBlue').className = 'comment';
-        }
-        else{
-        document.getElementById('No'+(Number+1)+'Answer0').className = 'correct';
-        document.getElementById('No'+(Number+1)+'Answer1').className = 'after';
-        document.getElementById('No'+(Number+1)+'Answer2').className = 'incorrect';
         document.getElementById('No'+(Number+1)+'CommentRed').className = 'comment';
     }
     }
