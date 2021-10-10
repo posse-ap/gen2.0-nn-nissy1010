@@ -1,0 +1,118 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body{
+    text-align: center;
+    margin: 0 auto;
+    width: 50%;
+}
+
+li{
+    list-style: none;
+}
+
+h1{
+    text-align: left;
+    font-weight: bold;
+}
+
+img{
+    width: 100%;
+}
+
+.before{
+    height: 50px;
+    margin: 4px auto;
+    width: 100%;
+    background-color: white;
+}
+
+.valid_button{
+    height: 50px;
+    margin: 4px auto;
+    width: 100%;
+    color: white;
+    background-color: #287dff;
+    border-style: solid;
+}
+
+.invalid_button{
+    height: 50px;
+    margin: 4px auto;
+    width: 100%;
+    color: white;
+    background-color: #FF5128;
+    border-style: solid;
+}
+
+.none{
+    pointer-events: none;
+}
+
+.quiz{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.comment_box{
+    display: none;
+    height: 60px;
+    margin: 4px auto;
+    padding: 10px 0 0 0;
+    width: 100%;
+    text-align: left;
+    background-color: #eee;
+}
+
+.valid_comment{
+    text-decoration: underline;
+    text-decoration-color: #287dff;
+    font-weight: bold;
+}
+
+.invalid_comment{
+    text-decoration: underline;
+    text-decoration-color: #FF5128;
+    font-weight: bold;
+}
