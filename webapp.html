@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POSSEアプリ</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="webapp.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header_left">
+            <img src="https://posse-ap.com/img/posseLogo.png" alt="" class="posse_logo">
+            <p class="week">4th week</p>
+        </div>
+        <div class="header_right">
+            <button class="submit">記録・投稿</button>
+        </div>
+    </header>
+
+    <div class="content">
+        <section class="content_left">
+            <section class="cards">
+                <div class="card">
+                    <h2 class="card_title">Today</h2>
+                    <p class="card_content">3</p>
+                    <p class="card_unit">hour</p>
+                </div>
+                <div class="card">
+                    <h2 class="card_title">Month</h2>
+                    <p class="card_content">120</p>
+                    <p class="card_unit">hour</p>
+                </div>
+                <div class="card">
+                    <h2 class="card_title">Total</h2>
+                    <p class="card_content">1348</p>
+                    <p class="card_unit">hour</p>
+                </div>
+            </section>
+        
+            <section class="bar_graph">
+                <img src="https://sys-daddy.com/wp-content/uploads/2020/08/sample_bar_chart_01.jpg" alt="" class="bar_img">
+            </section>
+        
+        </section>
+        
+        <section class="content_right">
+            <div class="right_content">
+                <h2 class="right_title">学習言語</h2>
+                <p>Javascript</p>
+                <p>CSS</p>
+                <p>PHP</p>
+                <p>HTML</p>
+                <p>Laravel</p>
+                <p>SQL</p>
+                <p>SHELL</p>
+                <p>情報システム基礎知識（その他）</p>
+            </div>
+            <div class="right_content">
+                <h2 class="right_title">学習コンテンツ</h2>
+                <p>ドットインストール</p>
+                <p>N予備校</p>
+                <p>POSSE課題</p>
+            </div>
+        </section>
+    </div>
+
+    <section class="page_change">
+        <button>←</button>
+        <p>2020年 10月</p>
+        <button>→</button>
+    </section>
+    
+    <div class="black_shadow"></div>
+
+    <div class="modal">
+
+        <div class="modal_content">
+            <section class="modal_left">
+                <h3>学習日</h3>
+                <p></p>
+            <div class="contact__form__item">
+                <dt>学習コンテンツ（複数選択可）</dt>
+                <dd>
+                    <label><input type="checkbox" name="content" value="N予備校">N予備校</label>
+                    <label><input type="checkbox" name="content" value="ドットインストール">ドットインストール</label>
+                    <label><input type="checkbox" name="content" value="POSSE課題">POSSE課題</label>
+                </dd>
+            </div>
+            <div class="contact__form__item">
+                <dt>学習言語（複数選択可）</dt>
+                <dd>
+                    <label><input type="checkbox" name="lang" value="HTML">HTML</label>
+                    <label><input type="checkbox" name="lang" value="CSS">CSS</label>
+                    <label><input type="checkbox" name="lang" value="Javascript">Javascript</label>
+                    <label><input type="checkbox" name="lang" value="PHP">PHP</label>
+                    <label><input type="checkbox" name="lang" value="Laravel">Laravel</label>
+                    <label><input type="checkbox" name="lang" value="SQL">SQL</label>
+                    <label><input type="checkbox" name="lang" value="SHELL">SHELL</label>
+                    <label><input type="checkbox" name="lang" value="情報システム基礎知識（その他）">情報システム基礎知識（その他）</label>
+                </dd>
+            </div>
+            </section>
+            <section class="modal_right">
+                <h3>学習時間</h3>
+                <p></p>
+                <h3>Twitter用コメント</h3>
+                <p></p>
+                <label><input type="checkbox" name="Twitter" value="Twitterに自動投稿する">Twitterに自動投稿する</label>
+            </section>
+        </div>
+        
+        
+        <button class="modal_submit">記録・投稿</button>
+
+    </div>
+
+    <script src="webapp.js"></script>
+</body>
+</html>
