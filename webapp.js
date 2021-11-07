@@ -57,25 +57,54 @@ function loaded(){
 
 
 function form_submit(){
+    let twitter = document.getElementById('Twitter_comment');
+    let twitter2 = document.getElementById('Twitter');
     var s, url;
-	s = "投稿するテキスト";
+	s = twitter.value;
 	url = document.location.href;
 	
-	if (s != "") {
+	if (twitter2.checked) {
 		if (s.length > 140) {
 			//文字数制限
 			alert("テキストが140字を超えています");
+		} 
+        else if(s == "") {
+            alert("Twitter用コメントを入力してください");
+        }
+        else {
+			//投稿画面を開く
+			url = "http://twitter.com/share?url=" + s;
+			window.open(url,"_blank","width=600,height=300");
+		}
+	}
+    else{
             modal2.style.display = 'block';
             setTimeout(loaded,5000);
             modal3.style.display = 'block';
             modal.style.display = 'none';
-		} else {
-			//投稿画面を開く
-			url = "http://twitter.com/share?url=" + escape(url) + "&text=" + s;
-			window.open(url,"_blank","width=600,height=300");
-		}
-	}
+    }
+
+    const formElements = document.forms.contactForm;
+
+    console.log(`学習日：${formElements.day.value}`);
+
+    Array.prototype.forEach.call(formElements.content, function (checkbox) {
+        if(checkbox.checked === true){
+        console.log('学習コンテンツ：', checkbox.value);
+        }
+    });
+    
+    Array.prototype.forEach.call(formElements.lang, function (checkbox) {
+        if(checkbox.checked === true){
+        console.log('学習言語：', checkbox.value);
+        }
+    });
+    
+
+    console.log(`学習時間：${formElements.time.value}`);
+    console.log(`Twitter用コメント：${formElements.comment.value}`);
 }
+
 
 function decide_day(){
     calendar.style.display = 'none';
@@ -178,7 +207,7 @@ document.addEventListener("click", function(e) {
             class_day[i].classList.remove('day_checked');
         }
         day_box.value = now_date.innerHTML + e.target.innerHTML + '日';
-        e.target.classList.toggle('day_checked');
+        e.target.classList.add('day_checked');
     }
 })
 
@@ -227,80 +256,8 @@ check_box.addEventListener('change', function() {
 })
 }
 
-google.charts.load("current", {packages:["corechart"]});
-google.load("visualization", "1", {packages:["corechart"]});
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-        ['Task', 'Hours per Day'],
-        ['HTML', 30],
-        ['CSS', 20],
-        ['JavaScript', 10],
-        ['PHP', 5],
-        ['Laravel', 5],
-        ['SQL', 20],
-        ['SHELL', 20],
-        ['その他', 10]
-        ]);
 
-        var data2 = google.visualization.arrayToDataTable([
-            ['Task', 'Hours per Day'],
-            ['N予備校', 40],
-            ['ドットインストール', 20],
-            ['POSSE課題', 40],
-        ]);
 
-        var options = {
-        // title: 'My Daily Activities',
-        pieHole: 0.4,
-        colors: ['#0345EC','#0F71BD','#20BDDE','#3CCEFE','#B29EF3','#6D46EC','#4A17EF','#3105C0'],
-        chartArea:{left:19,top:0,width:'85%',height:'110%'},
-        width: 275,
-        height: 250,
-        pieSliceBorderColor: 'none',
-        legend: {position: 'none'},
-        
-        };
-
-        var options2 = {
-            // title: 'My Daily Activities2',
-            pieHole: 0.4,
-            colors: ['#0345EC','#0F71BD','#20BDDE','#3CCEFE','#B29EF3','#6D46EC','#4A17EF','#3105C0'],
-            chartArea:{left:19,top:0,width:'85%',height:'110%'},
-            width: 275,
-            height: 250,
-            pieSliceBorderColor: 'none',
-            legend: {position: 'none'}
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-        chart.draw(data, options);
-
-        var chart2 = new google.visualization.PieChart(document.getElementById('donutchart2'));
-        chart2.draw(data2, options2);
-
-        var data3 = google.visualization.arrayToDataTable(dataset);
-        var options3 = {
-        // title: 'Temperature in Tokyo',
-        hAxis: {
-            gridlines: {color:"transparent"},
-    
-        },
-        vAxis: {
-            gridlines: {color:"transparent"},
-            baselineColor: 'transparent'
-        },
-        bar: {groupWidth: "55%"},
-        // colors: ['#259EDD'],
-        chartArea:{width:'90%',height:'90%'},
-        height: 350,
-        width: 560,
-        // height:300,
-        legend: {position: 'none'},
-        };
-        var chart3 = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-        chart3.draw(data3, options3);
-    }
 
 
 
@@ -343,4 +300,358 @@ var dataset = [
 ["28",1],
 ["29",7],
 ["30",8],
-];
+]
+
+    const matchMedia3 = window.matchMedia('(max-width:600px)');
+    const matchMedia = window.matchMedia('(max-width:424px)');
+    const matchMedia2 = window.matchMedia('(max-width:350px)');
+
+
+    if (matchMedia2.matches){
+        google.charts.load("current", {packages:["corechart"]});
+        google.load("visualization", "1", {packages:["corechart"]});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['HTML', 30],
+                ['CSS', 20],
+                ['JavaScript', 10],
+                ['PHP', 5],
+                ['Laravel', 5],
+                ['SQL', 20],
+                ['SHELL', 20],
+                ['その他', 10]
+                ]);
+        
+                var data2 = google.visualization.arrayToDataTable([
+                    ['Task', 'Hours per Day'],
+                    ['N予備校', 40],
+                    ['ドットインストール', 20],
+                    ['POSSE課題', 40],
+                ]);
+        
+                var options = {
+                pieHole: 0.4,
+                colors: ['#0345EC','#0F71BD','#20BDDE','#3CCEFE','#B29EF3','#6D46EC','#4A17EF','#3105C0'],
+                chartArea:{left:10,top:0,width:'85%',height:'110%'},
+                width: 120,
+                height: 120,
+                pieSliceBorderColor: 'none',
+                legend: {position: 'none'},
+                
+                };
+        
+                var options2 = {
+                    pieHole: 0.4,
+                    colors: ['#0345EC','#0F71BD','#20BDDE','#3CCEFE','#B29EF3','#6D46EC','#4A17EF','#3105C0'],
+                    chartArea:{left:10,top:0,width:'85%',height:'110%'},
+                    width: 120,
+                    height: 120,
+                    pieSliceBorderColor: 'none',
+                    legend: {position: 'none'}
+                };
+        
+                var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+                chart.draw(data, options);
+        
+                var chart2 = new google.visualization.PieChart(document.getElementById('donutchart2'));
+                chart2.draw(data2, options2);
+        
+                var data3 = google.visualization.arrayToDataTable(dataset);
+                var options3 = {
+                hAxis: {
+                    textStyle:{color: '#C0D4E3',},
+                    ticks: [2,4,6,8,10,15,20],
+        
+                    showTextEvery:2,
+                    // 目盛りを自分で設定
+                    // ticks:{
+                    //     callback: function(value) {return ((value % 10) == 0)? value : ''},
+                    //     min: 0,
+                    //     max: 30,
+                    //     stepSize: 1
+                    // }
+        
+                },
+                vAxis: {
+                    format: `#h`,
+                    textStyle:{color: '#C0D4E3',fontSize: 6},
+                    gridlines: {color:"transparent"},
+                    baselineColor: 'transparent',
+                    showTextEvery: 2,
+                },
+                bar: {groupWidth: "55%"},
+                chartArea:{width:'85%',height:'73%'},
+                width: 270,
+                height:130,
+                legend: {position: 'none'},
+                
+                };
+                var chart3 = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+                chart3.draw(data3, options3);
+            }
+    }
+    else if (matchMedia.matches) {
+    google.charts.load("current", {packages:["corechart"]});
+        google.load("visualization", "1", {packages:["corechart"]});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['HTML', 30],
+                ['CSS', 20],
+                ['JavaScript', 10],
+                ['PHP', 5],
+                ['Laravel', 5],
+                ['SQL', 20],
+                ['SHELL', 20],
+                ['その他', 10]
+                ]);
+        
+                var data2 = google.visualization.arrayToDataTable([
+                    ['Task', 'Hours per Day'],
+                    ['N予備校', 40],
+                    ['ドットインストール', 20],
+                    ['POSSE課題', 40],
+                ]);
+        
+                var options = {
+                pieHole: 0.4,
+                colors: ['#0345EC','#0F71BD','#20BDDE','#3CCEFE','#B29EF3','#6D46EC','#4A17EF','#3105C0'],
+                chartArea:{left:10,top:0,width:'85%',height:'110%'},
+                width: 145,
+                height: 145,
+                pieSliceBorderColor: 'none',
+                legend: {position: 'none'},
+                
+                };
+        
+                var options2 = {
+                    pieHole: 0.4,
+                    colors: ['#0345EC','#0F71BD','#20BDDE','#3CCEFE','#B29EF3','#6D46EC','#4A17EF','#3105C0'],
+                    chartArea:{left:10,top:0,width:'85%',height:'110%'},
+                    width: 145,
+                    height: 145,
+                    pieSliceBorderColor: 'none',
+                    legend: {position: 'none'}
+                };
+        
+                var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+                chart.draw(data, options);
+        
+                var chart2 = new google.visualization.PieChart(document.getElementById('donutchart2'));
+                chart2.draw(data2, options2);
+        
+                var data3 = google.visualization.arrayToDataTable(dataset);
+                var options3 = {
+                hAxis: {
+                    textStyle:{color: '#C0D4E3',},
+                    ticks: [2,4,6,8,10,15,20],
+        
+                    showTextEvery:2,
+                    // 目盛りを自分で設定
+                    // ticks:{
+                    //     callback: function(value) {return ((value % 10) == 0)? value : ''},
+                    //     min: 0,
+                    //     max: 30,
+                    //     stepSize: 1
+                    // }
+        
+                },
+                vAxis: {
+                    format: `#h`,
+                    textStyle:{color: '#C0D4E3',fontSize: 6},
+                    gridlines: {color:"transparent"},
+                    baselineColor: 'transparent',
+                    showTextEvery: 2,
+                },
+                bar: {groupWidth: "55%"},
+                chartArea:{width:'85%',height:'73%'},
+                height: 340,
+                width: 320,
+                height:150,
+                legend: {position: 'none'},
+                
+                };
+                var chart3 = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+                chart3.draw(data3, options3);
+            }
+} else if(matchMedia3.matches){
+    google.charts.load("current", {packages:["corechart"]});
+        google.load("visualization", "1", {packages:["corechart"]});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['HTML', 30],
+                ['CSS', 20],
+                ['JavaScript', 10],
+                ['PHP', 5],
+                ['Laravel', 5],
+                ['SQL', 20],
+                ['SHELL', 20],
+                ['その他', 10]
+                ]);
+        
+                var data2 = google.visualization.arrayToDataTable([
+                    ['Task', 'Hours per Day'],
+                    ['N予備校', 40],
+                    ['ドットインストール', 20],
+                    ['POSSE課題', 40],
+                ]);
+        
+                var options = {
+                pieHole: 0.4,
+                colors: ['#0345EC','#0F71BD','#20BDDE','#3CCEFE','#B29EF3','#6D46EC','#4A17EF','#3105C0'],
+                chartArea:{left:10,top:0,width:'85%',height:'110%'},
+                width: 170,
+                height: 170,
+                pieSliceBorderColor: 'none',
+                legend: {position: 'none'},
+                
+                };
+        
+                var options2 = {
+                    pieHole: 0.4,
+                    colors: ['#0345EC','#0F71BD','#20BDDE','#3CCEFE','#B29EF3','#6D46EC','#4A17EF','#3105C0'],
+                    chartArea:{left:10,top:0,width:'85%',height:'110%'},
+                    width: 170,
+                    height: 170,
+                    pieSliceBorderColor: 'none',
+                    legend: {position: 'none'}
+                };
+        
+                var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+                chart.draw(data, options);
+        
+                var chart2 = new google.visualization.PieChart(document.getElementById('donutchart2'));
+                chart2.draw(data2, options2);
+        
+                var data3 = google.visualization.arrayToDataTable(dataset);
+                var options3 = {
+                hAxis: {
+                    textStyle:{color: '#C0D4E3',},
+                    ticks: [2,4,6,8,10,15,20],
+        
+                    showTextEvery:2,
+                    // 目盛りを自分で設定
+                    // ticks:{
+                    //     callback: function(value) {return ((value % 10) == 0)? value : ''},
+                    //     min: 0,
+                    //     max: 30,
+                    //     stepSize: 1
+                    // }
+        
+                },
+                vAxis: {
+                    format: `#h`,
+                    textStyle:{color: '#C0D4E3',fontSize: 13},
+                    gridlines: {color:"transparent"},
+                    baselineColor: 'transparent',
+                    showTextEvery: 2,
+                },
+                bar: {groupWidth: "55%"},
+                chartArea:{width:'90%',height:'80%'},
+                width: 365,
+                height:170,
+                legend: {position: 'none'},
+                
+                };
+                var chart3 = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+                chart3.draw(data3, options3);
+            }
+}
+    else {
+  // 651px以上で行う処理
+    google.charts.load("current", {packages:["corechart"]});
+        google.load("visualization", "1", {packages:["corechart"]});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['HTML', 30],
+                ['CSS', 20],
+                ['JavaScript', 10],
+                ['PHP', 5],
+                ['Laravel', 5],
+                ['SQL', 20],
+                ['SHELL', 20],
+                ['その他', 10]
+                ]);
+        
+                var data2 = google.visualization.arrayToDataTable([
+                    ['Task', 'Hours per Day'],
+                    ['N予備校', 40],
+                    ['ドットインストール', 20],
+                    ['POSSE課題', 40],
+                ]);
+        
+                var options = {
+                pieHole: 0.4,
+                colors: ['#0345EC','#0F71BD','#20BDDE','#3CCEFE','#B29EF3','#6D46EC','#4A17EF','#3105C0'],
+                chartArea:{left:19,top:0,width:'85%',height:'110%'},
+                width: 275,
+                height: 250,
+                pieSliceBorderColor: 'none',
+                legend: {position: 'none'},
+                
+                };
+        
+                var options2 = {
+                    pieHole: 0.4,
+                    colors: ['#0345EC','#0F71BD','#20BDDE','#3CCEFE','#B29EF3','#6D46EC','#4A17EF','#3105C0'],
+                    chartArea:{left:19,top:0,width:'85%',height:'110%'},
+                    width: 275,
+                    height: 250,
+                    pieSliceBorderColor: 'none',
+                    legend: {position: 'none'}
+                };
+        
+                var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+                chart.draw(data, options);
+        
+                var chart2 = new google.visualization.PieChart(document.getElementById('donutchart2'));
+                chart2.draw(data2, options2);
+        
+                var data3 = google.visualization.arrayToDataTable(dataset);
+                var options3 = {
+                hAxis: {
+                    textStyle:{color: '#C0D4E3',},
+                    ticks: [2,4,6,8,10,15,20],
+        
+                    showTextEvery:2,
+                    // 目盛りを自分で設定
+                    // ticks:{
+                    //     callback: function(value) {return ((value % 10) == 0)? value : ''},
+                    //     min: 0,
+                    //     max: 30,
+                    //     stepSize: 1
+                    // }
+        
+                },
+                vAxis: {
+                    format: `#h`,
+                    textStyle:{color: '#C0D4E3',fontSize: 13},
+                    gridlines: {color:"transparent"},
+                    baselineColor: 'transparent',
+                    showTextEvery: 2,
+                },
+                bar: {groupWidth: "55%"},
+                chartArea:{width:'90%',height:'80%'},
+                height: 340,
+                width: 560,
+                height:330,
+                legend: {position: 'none'},
+                
+                };
+                var chart3 = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+                chart3.draw(data3, options3);
+            }
+}
+
+
+
+// window.onresize = function() {
+//     drawChart();
+// }
