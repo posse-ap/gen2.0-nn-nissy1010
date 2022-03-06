@@ -1,26 +1,34 @@
-DROP SCHEMA IF EXISTS posse;
+DROP SCHEMA IF EXISTS webapp;
 
-CREATE SCHEMA posse;
+CREATE SCHEMA webapp;
 
-USE posse;
+USE webapp;
 
-DROP TABLE IF EXISTS `big_questions`;
+DROP TABLE IF EXISTS `person_data`;
 
-CREATE TABLE `big_questions` (
+CREATE TABLE `person_data` (
     `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
+    `date` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
+    `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
+    `lang` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
+    `time` INT NOT NULL
 );
 
 INSERT INTO
-    `big_questions`
+    `person_data`
 SET
-    name = '東京の難読地名クイズ';
+    `date` = '2022年 03月 06年'
+    `content` = 'N予備校'
+    `lang` = 'HTML'
+    `time` = 10
 
 INSERT INTO
     `big_questions`
 SET
-    name = '広島の難読地名クイズ';
-
+    `date` = '2022年 03月 06年'
+    `content` = 'N予備校'
+    `lang` = 'HTML'
+    `time` = 10
 DROP TABLE IF EXISTS `questions`;
 
 CREATE TABLE `questions` (

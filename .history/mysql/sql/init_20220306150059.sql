@@ -1,8 +1,8 @@
-DROP SCHEMA IF EXISTS posse;
+DROP SCHEMA IF EXISTS webapp;
 
-CREATE SCHEMA posse;
+CREATE SCHEMA webapp;
 
-USE posse;
+USE webapp;
 
 DROP TABLE IF EXISTS `big_questions`;
 

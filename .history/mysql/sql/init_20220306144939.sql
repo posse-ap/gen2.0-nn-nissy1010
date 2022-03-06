@@ -1,0 +1,3 @@
+DROP SCHEMA IF EXISTS ;
+CREATE SCHEMA posse;
+USE posse;

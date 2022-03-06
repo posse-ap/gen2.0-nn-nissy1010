@@ -1,14 +1,14 @@
-DROP SCHEMA IF EXISTS posse;
+DROP SCHEMA IF EXISTS webapp;
 
-CREATE SCHEMA posse;
+CREATE SCHEMA webapp;
 
-USE posse;
+USE webapp;
 
-DROP TABLE IF EXISTS `big_questions`;
+DROP TABLE IF EXISTS `person_data`;
 
-CREATE TABLE `big_questions` (
+CREATE TABLE `person_data` (
     `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
+    `date` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
 );
 
 INSERT INTO
