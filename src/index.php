@@ -1,5 +1,5 @@
 <?php
-require('../dbconnect.php');
+require('./dbconnect.php');
 ?>
 
 <!DOCTYPE html>
@@ -9,8 +9,8 @@ require('../dbconnect.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POSSEアプリ</title>
-    <link rel="stylesheet" href="../src/css/reset.css">
-    <link rel="stylesheet" href="../src/css/style.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <header class="header">
@@ -207,6 +207,6 @@ require('../dbconnect.php');
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src = "https://www.google.com/jsapi"></script>
-    <script src="../src/js/main.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>
