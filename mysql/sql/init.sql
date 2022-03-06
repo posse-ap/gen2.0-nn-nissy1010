@@ -20,3 +20,4 @@ INSERT INTO
     `big_questions`
 SET
     name = '広島の難読地名クイズ';
+    
