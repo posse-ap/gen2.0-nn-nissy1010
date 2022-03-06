@@ -131,20 +131,6 @@ body{
     box-sizing: border-box;
 }
 
-@media screen and (min-width:651px) and (max-width: 1279px){
-    .content{
-        width: 92%;
-    }
-
-    .bar_graph{
-        width: 104%;
-    }
-
-    .content_right{
-        width: 120%;
-    }
-}
-
 @media screen and (min-width:1280px) and (max-width: 1281px){
     .content_left{
         margin-left: 4.7%;
@@ -205,11 +191,7 @@ body{
 }
 
 .bar_graph{
-    box-sizing: content-box;
-}
-
-.content{
-    width: 100%;
+    box-sizing: ;
 }
 }
 
@@ -1230,7 +1212,7 @@ td.disabled {
     }
 
     .content_right{
-        width: 102.5%;
+        width: 95%;
         margin: 1rem 2rem;
     }
 

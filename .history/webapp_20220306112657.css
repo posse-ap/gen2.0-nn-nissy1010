@@ -141,7 +141,7 @@ body{
     }
 
     .content_right{
-        width: 120%;
+        width: 100%;
     }
 }
 
@@ -1230,7 +1230,7 @@ td.disabled {
     }
 
     .content_right{
-        width: 102.5%;
+        width: 95%;
         margin: 1rem 2rem;
     }
 

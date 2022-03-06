@@ -140,9 +140,7 @@ body{
         width: 104%;
     }
 
-    .content_right{
-        width: 120%;
-    }
+    .co
 }
 
 @media screen and (min-width:1280px) and (max-width: 1281px){
@@ -1230,7 +1228,7 @@ td.disabled {
     }
 
     .content_right{
-        width: 102.5%;
+        width: 95%;
         margin: 1rem 2rem;
     }
 
