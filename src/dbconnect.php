@@ -1,6 +1,6 @@
 <?php
-$dsn = 'mysql:host=mysql;dbname=posse;charset=utf8;';
-$user = 'posse_user';
+$dsn = 'mysql:host=mysql;dbname=webapp;charset=utf8;';
+$user = 'naoki';
 $password = 'password';
 
 try {
