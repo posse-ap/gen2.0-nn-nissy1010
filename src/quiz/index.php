@@ -28,6 +28,7 @@ if (isset($_GET['question_id'])) {
       $stmt = $db->prepare('SELECT * FROM choices WHERE question_id = ?');
       $stmt->execute(array($question['id']));
       $choices = $stmt->fetchAll();
+      shuffle($choices); 
       $stmt = $db->prepare('SELECT id, name FROM choices WHERE question_id = ? AND valid = 1');
       $stmt->execute(array($question['id']));
       $answer = $stmt->fetch();
