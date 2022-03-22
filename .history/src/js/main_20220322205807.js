@@ -233,6 +233,7 @@ function cancel(){
 		}
         
 //動的なidをつける
+// let check = "check"
 let check_1 = document.getElementsByClassName("check_1") ;
 for (let i = 0; i <= 10; i++) {
     check_1[i].classList.remove('checked_check_1')
@@ -241,6 +242,7 @@ for (let i = 0; i <= 10; i++) {
 
 
 //動的なidをつける
+// let check = "check"
 let check_1 = document.getElementsByClassName("check_1") ;
 let check = "check";
 

@@ -74,6 +74,9 @@ $contents = $content_stmt->fetchAll() ?: 0;
         }
         ?>
     ]
+
+
+
     // 1. 変数mqlにMediaQueryListを格納
     const mql = window.matchMedia('(min-width: 424px)');
 
