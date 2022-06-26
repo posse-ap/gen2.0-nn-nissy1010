@@ -21,8 +21,6 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    protected $maxAttempts = 5;     // ログイン試行回数（回）
-
     /**
      * Where to redirect users after login.
      *
