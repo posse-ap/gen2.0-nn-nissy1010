@@ -3,8 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-
-class StudyDataTableSeeder extends Seeder
+class StudyRecordsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -68,10 +67,57 @@ class StudyDataTableSeeder extends Seeder
                 'study_content_id' => 1,
                 'study_hour' => 3
             ],
+            [
+                'study_date' => '2022-6-17',
+                'study_language_id' => 5,
+                'study_content_id' => 3,
+                'study_hour' => 2
+            ],
+            [
+                'study_date' => '2022-6-17',
+                'study_language_id' => 6,
+                'study_content_id' => 1,
+                'study_hour' => 3
+            ],
+            [
+                'study_date' => '2022-6-18',
+                'study_language_id' => 2,
+                'study_content_id' => 2,
+                'study_hour' => 3
+            ],
+            [
+                'study_date' => '2022-6-18',
+                'study_language_id' => 1,
+                'study_content_id' => 3,
+                'study_hour' => 3
+            ],
+            [
+                'study_date' => '2022-6-18',
+                'study_language_id' => 2,
+                'study_content_id' => 2,
+                'study_hour' => 3
+            ],
+            [
+                'study_date' => '2022-6-18',
+                'study_language_id' => 1,
+                'study_content_id' => 3,
+                'study_hour' => 3
+            ],
+            [
+                'study_date' => '2022-6-18',
+                'study_language_id' => 2,
+                'study_content_id' => 2,
+                'study_hour' => 3
+            ],
+            [
+                'study_date' => '2022-6-18',
+                'study_language_id' => 2,
+                'study_content_id' => 2,
+                'study_hour' => 3
+            ],
         ];
-
         foreach ($params as $param) {
-            DB::table('study_data')->insert($param);
+            DB::table('study_records')->insert($param);
         }
     }
 }

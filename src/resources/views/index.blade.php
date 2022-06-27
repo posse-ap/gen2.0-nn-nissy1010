@@ -24,17 +24,17 @@
             <section class="cards">
                 <div class="card">
                     <h2 class="card_title">Today</h2>
-                    <p class="card_content">3</p>
+                    <p class="card_content">{{ $today }}</p>
                     <p class="card_unit">hour</p>
                 </div>
                 <div class="card">
                     <h2 class="card_title">Month</h2>
-                    <p class="card_content">120</p>
+                    <p class="card_content">{{ $month }}</p>
                     <p class="card_unit">hour</p>
                 </div>
                 <div class="card">
                     <h2 class="card_title">Total</h2>
-                    <p class="card_content">1348</p>
+                    <p class="card_content">{{ $total }}</p>
                     <p class="card_unit">hour</p>
                 </div>
             </section>
@@ -201,8 +201,294 @@
     </div>
 
 
+    <p>{{$test3}}</p>
+    <!-- <p>{{$languages}}</p> -->
+
+
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src = "https://www.google.com/jsapi"></script>
     <script src="webapp.js"></script>
 </body>
 </html>
+
+
+<script>
+    var dataset = [
+        ["date", "time"],
+        <?php
+        foreach ($bars as $bar) {
+        ?>['<?= substr($bar->study_date, 8, 2) ?>', <?= $bar->sum ?>],
+        <?php
+        }
+        ?>
+    ]
+    // 1. 変数mqlにMediaQueryListを格納
+    const mql = window.matchMedia('(min-width: 424px)');
+
+    // 2. メディアクエリに応じて実行したい処理を関数として定義
+    const handleMediaQuery = function(mql) {
+        if (mql.matches) {
+            // 424px以上の場合の処理
+            google.charts.load("current", {
+        packages: ["corechart"]
+    });
+    google.load("visualization", "1", {
+        packages: ["corechart"]
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
+            <?php
+            foreach ($languages as $language) {
+            ?>['<?= $language->study_language ?>', <?= $language->records->study_hour ?>],
+            <?php
+            }
+            ?>
+        ]);
+
+        var data2 = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
+            <?php
+            foreach ($contents as $content) {
+            ?>['<?= $content->study_content ?>', <?= $content->records->study_hour ?>],
+            <?php
+            }
+            ?>
+        ]);
+
+        var options = {
+            responsive: true,
+            maintainAspectRatio: false,
+            pieHole: 0.4,
+            colors: [
+                <?php
+                foreach ($languages as $language) {
+                ?> '<?= $language->color ?>',
+                <?php
+                }
+                ?>
+            ],
+            chartArea: {
+                left: 3,
+                right: 3,
+                top: 0,
+                width: '90%',
+                height: '90%'
+            },
+            pieSliceBorderColor: 'none',
+            legend: {
+                position: 'none'
+            },
+        };
+        var options2 = {
+            responsive: true,
+            maintainAspectRatio: false,
+            pieHole: 0.4,
+            colors: [
+                <?php
+                foreach ($contents as $content) {
+                ?> '<?= $content->color ?>',
+                <?php
+                }
+                ?>
+            ],
+            chartArea: {
+                left: 3,
+                right: 3,
+                top: 0,
+                width: '90%',
+                height: '90%'
+            },
+            pieSliceBorderColor: 'none',
+            legend: {
+                position: 'none'
+            }
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+
+        var chart2 = new google.visualization.PieChart(document.getElementById('donutchart2'));
+        chart2.draw(data2, options2);
+
+        var data3 = google.visualization.arrayToDataTable(dataset);
+        var options3 = {
+            responsive: true,
+            maintainAspectRatio: false,
+            hAxis: {
+                textStyle: {
+                    color: '#C0D4E3',
+                },
+                ticks: [2, 4, 6, 8, 10, 15, 20],
+                showTextEvery: 2,
+            },
+            vAxis: {
+                format: `#h`,
+                textStyle: {
+                    color: '#C0D4E3',
+                    fontSize: 13
+                },
+                gridlines: {
+                    color: "transparent"
+                },
+                baselineColor: 'transparent',
+                showTextEvery: 2,
+                ticks: {
+                    autoSkip: true,
+                    maxTicksLimit: 20 //値の最大表示数
+                }
+            },
+            bar: {
+                groupWidth: "55%"
+            },
+            chartArea: {
+                width: '90%',
+                height: '90%'
+            },
+            legend: {
+                position: 'none'
+            },
+        };
+        var chart3 = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart3.draw(data3, options3);
+    }
+        } else {
+            // 424px未満の場合の処理
+            google.charts.load("current", {
+        packages: ["corechart"]
+    });
+    google.load("visualization", "1", {
+        packages: ["corechart"]
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
+            <?php
+            foreach ($languages as $language) {
+            ?>['<?= $language->study_language ?>', <?= $language->records->study_hour ?>],
+            <?php
+            }
+            ?>
+        ]);
+
+        var data2 = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
+            <?php
+            foreach ($contents as $content) {
+            ?>['<?= $content->study_content ?>', <?= $content->records->study_hour ?>],
+            <?php
+            }
+            ?>
+        ]);
+
+        var options = {
+            responsive: true,
+            maintainAspectRatio: false,
+            pieHole: 0.4,
+            colors: [
+                <?php
+                foreach ($languages as $language) {
+                ?> '<?= $language->color ?>',
+                <?php
+                }
+                ?>
+            ],
+            chartArea: {
+                top: 0,
+                width: '90%',
+                height: '90%'
+            },
+            pieSliceBorderColor: 'none',
+            legend: {
+                position: 'none'
+            },
+            width: 150,
+            height: 150,
+        };
+        var options2 = {
+            responsive: true,
+            maintainAspectRatio: false,
+            pieHole: 0.4,
+            colors: [
+                <?php
+                foreach ($contents as $content) {
+                ?> '<?= $content->color ?>',
+                <?php
+                }
+                ?>
+            ],
+            chartArea: {
+                top: 0,
+                width: '90%',
+                height: '90%'
+            },
+            pieSliceBorderColor: 'none',
+            legend: {
+                position: 'none'
+            },
+            width: 150,
+            height: 150,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+
+        var chart2 = new google.visualization.PieChart(document.getElementById('donutchart2'));
+        chart2.draw(data2, options2);
+
+        var data3 = google.visualization.arrayToDataTable(dataset);
+        var options3 = {
+            responsive: true,
+            maintainAspectRatio: false,
+            hAxis: {
+                textStyle: {
+                    color: '#C0D4E3',
+                },
+                ticks: [2, 4, 6, 8, 10, 15, 20],
+                showTextEvery: 2,
+            },
+            vAxis: {
+                format: `#h`,
+                textStyle: {
+                    color: '#C0D4E3',
+                    fontSize: 13
+                },
+                gridlines: {
+                    color: "transparent"
+                },
+                baselineColor: 'transparent',
+                showTextEvery: 2,
+                ticks: {
+                    autoSkip: true,
+                    maxTicksLimit: 20 //値の最大表示数
+                }
+            },
+            bar: {
+                groupWidth: "55%"
+            },
+            chartArea: {
+                width: '90%',
+                height: '90%'
+            },
+            legend: {
+                position: 'none'
+            },
+            height: 150,
+        };
+        var chart3 = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart3.draw(data3, options3);
+    }
+        }
+    };
+
+    // 3. イベントリスナーを追加（メディアクエリの条件一致を監視）
+    mql.addListener(handleMediaQuery);
+
+    // 4. 初回チェックのため関数を一度実行
+    handleMediaQuery(mql);
+
+</script>

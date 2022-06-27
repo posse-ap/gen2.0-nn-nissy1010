@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class StudyLanguage extends Model
 {
-    //
+    public function records()
+    {
+        return $this->hasOne('App\StudyRecord');
+    }
 }
