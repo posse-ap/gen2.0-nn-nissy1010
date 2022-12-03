@@ -1,0 +1,19 @@
+name: Add To GitHub projects
+on:
+  issues:
+    types:
+      - opened # issueを登録した時
+env:
+  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+jobs:
+  add-to-project:
+    name: Add issue to project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v0.3.0
+        with:
+          # https://github.com/orgs|users/<ownerName>/projects/<projectNumber>
+          project-url: https://github.com/users/nn-nissy1010/projects/6
+          # repo and projectのtokenが必要
+          github-token: ${{ env.GITHUB_TOKEN }}
+          
